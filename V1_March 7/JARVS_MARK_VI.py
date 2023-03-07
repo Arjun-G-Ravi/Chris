@@ -1,20 +1,4 @@
 
-#     FUTURE PLANS
-#     opencv 
-#     mediapipe for object and face detection
-#     pyttsx3 for tts
-#     google speech recognition for speech recognition
-#     implement mood recognition
-#     wake word porkupine
-#     some kind of gui for tony starkish look
-#     web browser open close system 
-#     gpt3 as AI
-#     shut down- sequence
-#     many day to day features like alarm clock, google search, etc
-#     Acts as a performance analyser
-#     Object oriented
-
-   
 import pyttsx3
 import openai
 # import opencv 
