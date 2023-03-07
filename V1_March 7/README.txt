@@ -10,7 +10,7 @@
       - Object oriented programmed model
   Speech
  √    - pyttsx3 for tts ?
-      - whisper for speech recognition
+ √    - whisper for speech recognition
       - implement mood recognition
   User Interface
       - wake word porkupine
