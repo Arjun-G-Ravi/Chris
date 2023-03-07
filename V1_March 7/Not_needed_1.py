@@ -1,4 +1,4 @@
-
+# GOOGLE SPEECH RECO MODEL + OPENAI BASE AI
 import pyttsx3
 import openai
 # import opencv 
@@ -47,7 +47,10 @@ def myCommand():
         return "rerun"
 
 while True:
-    openai.api_key = 'YOUR OPEN-AI KEY HERE'    #Type your openai key here
+    f = open("C:\\Users\\Home\\Desktop\\Programs\\keyOpenAI.txt",'r')
+    key = f.read()
+    f.close()
+    openai.api_key = key
     myPrompt = myCommand()  
     if myPrompt == "rerun":
         continue

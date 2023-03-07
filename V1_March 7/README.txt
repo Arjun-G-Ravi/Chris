@@ -14,14 +14,18 @@ Speech
     - implement mood recognition
 User Interface
     - wake word porkupine
-    - some kind of gui
-        - web browser open close system 
+    - some kind of gui with tech-ish look and feel
 Features
-    - shut down- sequence
+    - shut down-sequence
     - many day to day features like alarm clock, google search, etc
     - Acts as a performance analyser
+    - Notion interactions
+    - Etlab interactions
+    - WApp, LinkedIn interactions
+    - Intention recognition and action performance
 Real world interactions
     - (the usual) camera, microphone and speaker
     - Robotic arm
     - On various iot ?
-   
+    - Website ?
+    - On mobile ?
