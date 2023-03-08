@@ -1,5 +1,5 @@
-'''
-import opencv ascv2
+
+import cv2
 import argparse
 import numpy as np
 
@@ -101,4 +101,4 @@ cv2.imshow("object detection", image)
 cv2.waitKey()
     
 cv2.imwrite("object-detection.jpg", image)
-cv2.destroyAllWindows()'''
+cv2.destroyAllWindows()
