@@ -1,38 +1,28 @@
-# OpenCV Python program to detect cars in video frame
-# import libraries of python OpenCV
+modelpath = "yolo.h5"
+from imageai import Detection
+yolo = Detection.ObjectDetection()
+yolo.setModelTypeAsYOLOv3()
+yolo.setModelPath(modelpath)
+yolo.loadModel()
 import cv2
-
-# capture frames from a video
-cap = cv2.VideoCapture('video.avi')
-
-# Trained XML classifiers describes some features of some object we want to detect
-car_cascade = cv2.CascadeClassifier('cars.xml')
-
-# loop runs if capturing has been initialized.
+cam = cv2.VideoCapture(0) #0=front-cam, 1=back-cam
+cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1300)
+cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 1500)
 while True:
-	# reads frames from a video
-	ret, frames = cap.read()
-	
-	# convert to gray scale of each frames
-	gray = cv2.cvtColor(frames, cv2.COLOR_BGR2GRAY)
-	
-
-	# Detects cars of different sizes in the input image
-	cars = car_cascade.detectMultiScale(gray, 1.1, 1)
-	
-	# # To draw a rectangle in each cars
-	# for (x,y,w,h) in cars:
-	# 	cv2.rectangle(frames,(x,y),(x+w,y+h),(0,0,255),2)
-	
-	# Display frames in a window
-	cv2.imshow('video2', frames)
-	# Wait for Esc key to stop
-	if cv2.waitKey(33) == 27:
-		break
-
-    # Display frames in a window
-cv2.imshow('video2', frames)
-        
-
-# De-allocate any associated memory usage
+    ## read frames
+    ret, img = cam.read()
+    ## predict yolo
+    img, preds = yolo.detectCustomObjectsFromImage(input_image=img, 
+                      custom_objects=None, input_type="array",
+                      output_type="array",
+                      minimum_percentage_probability=70,
+                      display_percentage_probability=False,
+                      display_object_name=True)
+    ## display predictions
+    cv2.imshow("", img)
+    ## press q or Esc to quit    
+    if (cv2.waitKey(1) & 0xFF == ord("q")) or (cv2.waitKey(1)==27):
+        break
+## close camera
+cam.release()
 cv2.destroyAllWindows()
