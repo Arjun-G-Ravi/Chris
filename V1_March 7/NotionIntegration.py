@@ -1,7 +1,7 @@
 # A row is called a page !!!
 
 import requests
-from datetime import datetime, timezone
+import datetime
 
 notion_tocken = 'secret_cIGknvyxjpd1ucDAHSFSuJWLKgAkfsKPZ8IgyQCHOoY'
 db_id ='8c5db08cf6bb4113b5a64277dfb00623'
@@ -27,12 +27,12 @@ def get_pages(num_pages=None):
     return results
 
 def create_page(data: dict):
-    create_url = "https://api.notion.com/v1/pages"
+    # create_url = f"https://api.notion.com/v1/databases/{db_id}/query"
+    create_url = f"https://api.notion.com/v1/pages"
 
     payload = {"parent": {"database_id": db_id}, "properties": data}
 
     res = requests.post(create_url, headers=headers, json=payload)
-    # print(res.status_code)
     return res
 
 def printAll():
@@ -44,8 +44,10 @@ def printAll():
         ai_hr = props["AI"]["number"]
         math_hr = props["Mathematics"]["number"]
         college_hr = props["College"]["number"]
-        tot_hr = props["College"]["number"]
+        tot_hr = props["TOTAL"]["number"]
         print(f"{sl_no}:{date}  AI:{ai_hr} Mathematics:{math_hr} College:{college_hr}  TOTAL:{tot_hr}")
+
+
 
 # MAIN
 pages = get_pages()
@@ -53,21 +55,29 @@ for page in pages:
     props = page["properties"]
     sl_no = props['SlNo']['title'][0]['text']['content']
     date = props["Date"]["date"]["start"]
+    # print('Date',date)
     ai_hr = props["AI"]["number"]
     math_hr = props["Mathematics"]["number"]
     college_hr = props["College"]["number"]
     # props["College"]["number"] = ai_hr + math_hr + college_hr
     tot_hr = props["College"]["number"]
-    
 
-title = "Test Title"
-description = "Test Description"
-published_date = datetime.now().astimezone(timezone.utc).isoformat()
+
+in_title = "Test Title"
+in_description = "Test Description"
+in_date = datetime.date.today().isoformat()
+in_ai = 2
+in_math=1
+in_coll = 3
+in_tot = in_ai+in_coll+in_math
 data = {
-    "URL": {"title": [{"text": {"content": description}}]},
-    "Title": {"rich_text": [{"text": {"content": title}}]},
-    "Published": {"date": {"start": published_date, "end": None}}
+    "SlNo": {"title": [{"text": {"content": 'Day 3'}}]},
+    "Date": {"date": {"start": in_date, "end": None}},
+    "AI": {"number": in_ai},
+    "Mathematics": {"number": in_math},
+    "College": {"number": in_coll},
+    "TOTAL": {"number": in_tot}
+    
 }
 
-# create_page(data)
-printAll()
+create_page(data)
