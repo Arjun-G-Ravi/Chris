@@ -6,7 +6,7 @@ from time import sleep
 
 class STT:
     def __init__(self):
-        filterwarnings('ignore')
+        filterwarnings('ignore')    # To ignore warnings
         
     def myCommand(self, threshold=1500, max_silence=1.5): 
         chunk = 1024 
