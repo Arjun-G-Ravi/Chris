@@ -63,13 +63,12 @@ for page in pages:
     tot_hr = props["College"]["number"]
 
 
-in_title = "Test Title"
-in_description = "Test Description"
 in_date = datetime.date.today().isoformat()
 in_ai = 2
 in_math=1
 in_coll = 3
 in_tot = in_ai+in_coll+in_math
+
 data = {
     "SlNo": {"title": [{"text": {"content": 'Day 3'}}]},
     "Date": {"date": {"start": in_date, "end": None}},
