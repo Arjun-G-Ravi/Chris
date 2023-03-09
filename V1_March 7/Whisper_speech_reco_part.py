@@ -34,7 +34,7 @@ class STT:
                 silent_frames += 1
                 non_o_count+=1
                 test_set.add('-')
-                if non_o_count%8==0:
+                if non_o_count%8 == 0:
                     print("-", end="")
             else:
                 print("o",end ="")
