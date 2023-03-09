@@ -47,7 +47,6 @@ def printAll():
         print(f"{sl_no}:{date}  AI:{ai_hr} Mathematics:{math_hr} College:{college_hr}  TOTAL:{tot_hr}")
 
 
-
 # MAIN
 pages = get_pages()
 for page in pages:
