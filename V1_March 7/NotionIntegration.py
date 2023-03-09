@@ -27,7 +27,6 @@ def get_pages(num_pages=None):
     return results
 
 def create_page(data: dict):
-    # create_url = f"https://api.notion.com/v1/databases/{db_id}/query"
     create_url = f"https://api.notion.com/v1/pages"
 
     payload = {"parent": {"database_id": db_id}, "properties": data}
@@ -55,11 +54,9 @@ for page in pages:
     props = page["properties"]
     sl_no = props['SlNo']['title'][0]['text']['content']
     date = props["Date"]["date"]["start"]
-    # print('Date',date)
     ai_hr = props["AI"]["number"]
     math_hr = props["Mathematics"]["number"]
     college_hr = props["College"]["number"]
-    # props["College"]["number"] = ai_hr + math_hr + college_hr
     tot_hr = props["College"]["number"]
 
 
@@ -76,7 +73,5 @@ data = {
     "Mathematics": {"number": in_math},
     "College": {"number": in_coll},
     "TOTAL": {"number": in_tot}
-    
 }
-
 create_page(data)
