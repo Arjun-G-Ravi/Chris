@@ -1,10 +1,10 @@
-modelpath = "yolo.h5"
+modelpath = "yolo-tiny.h5"
 from imageai import Detection
+import cv2
 yolo = Detection.ObjectDetection()
 yolo.setModelTypeAsYOLOv3()
 yolo.setModelPath(modelpath)
 yolo.loadModel()
-import cv2
 cam = cv2.VideoCapture(0) #0=front-cam, 1=back-cam
 cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1300)
 cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 1500)
