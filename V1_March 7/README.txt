@@ -1,7 +1,7 @@
             PLANS FOR CHRIS
             ---------------              (Alt 251 for tick mark √ )
   Camera
-      - opencv
+ √    - opencv
       - face recognition
       - mediapipe for object and face detection
       - implement mood recognition
@@ -19,8 +19,8 @@
       - shut down-sequence
       - many day to day features like alarm clock, google search, etc
       - Acts as a performance analyser
-      - Notion interactions
-      - Etlab interactions
+ √    - Notion interactions
+      - Etlab interactions 
       - WApp, LinkedIn interactions
       - Intention recognition and action performance
   Real world interactions
