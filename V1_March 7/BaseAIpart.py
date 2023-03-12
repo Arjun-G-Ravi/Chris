@@ -1,9 +1,9 @@
 import openai
 
-f = open("C:\\Users\\Home\\Desktop\\Programs\\keyOpenAI.txt",'r')
-key = f.read()
-f.close()
+f = open("/home/arjun/Desktop/Some docuements/OpenAiKey.txt",'r')
+key = f.read()[:-1]
 openai.api_key = key
+f.close()
 while True:
     prompt = input("Enter prompt: ")
     response = openai.Completion.create(model="text-davinci-003", prompt=prompt, temperature=0.7, max_tokens=30)
